@@ -19,9 +19,9 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
- * Test Example Three
- * Functionalize creating task into class method.
- * Add second test for creating another task
+ * Test Example Four
+ * Add test for editing a task.
+ * The edit test task should fail for this until we implement a way to clear data.
  */
 
 @RunWith(AndroidJUnit4.class)
