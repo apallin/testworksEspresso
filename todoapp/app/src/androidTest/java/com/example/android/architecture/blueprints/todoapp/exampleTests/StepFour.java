@@ -25,7 +25,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  */
 
 @RunWith(AndroidJUnit4.class)
-public class TestFour {
+public class StepFour {
 
     private final static String TESTTITLE = "TEST TITLE";
 

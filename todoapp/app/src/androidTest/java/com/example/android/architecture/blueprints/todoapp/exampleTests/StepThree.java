@@ -23,7 +23,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
  */
 
 @RunWith(AndroidJUnit4.class)
-public class TestThree {
+public class StepThree {
 
     private final static String TESTTITLE = "TEST TITLE";
 

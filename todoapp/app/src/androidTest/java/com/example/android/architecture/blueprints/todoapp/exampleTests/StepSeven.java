@@ -3,6 +3,7 @@ package com.example.android.architecture.blueprints.todoapp.exampleTests;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.view.Gravity;
 
 import com.example.android.architecture.blueprints.todoapp.Injection;
 import com.example.android.architecture.blueprints.todoapp.R;
@@ -18,17 +19,22 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.contrib.DrawerActions.open;
+import static android.support.test.espresso.contrib.DrawerMatchers.isClosed;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static com.example.android.architecture.blueprints.todoapp.custom.action.NavigationViewActions.navigateTo;
 
 /**
- * Test Example Five
- * Add class method for clearing static data.
- * Now editTest should pass
+ * Test Example Seven
+ * Add complete test for opening statistics screen and navigating back to To-Do list
+ * Now openStatisticsNavView should pass
  */
 
 @RunWith(AndroidJUnit4.class)
-public class TestFive {
+public class StepSeven {
 
     private final static String TESTTITLE = "TEST TITLE";
 
@@ -87,6 +93,34 @@ public class TestFive {
         // Save the task
         onView(withId(R.id.fab_edit_task_done)).perform(click());
     }
+
+    @Test
+    public void openStatisticsNavView() {
+        // Open Drawer to click on navigation.
+        onView(withId(R.id.drawer_layout))
+                .check(matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
+                .perform(open()); // Open Drawer
+
+        // Start statistics screen.
+        onView(withId(R.id.nav_view))
+                .perform(navigateTo(R.id.statistics_navigation_menu_item));
+
+        // Check that Statistics Activity was opened.
+        onView(withId(R.id.statistics)).check(matches(isDisplayed()));
+
+        // Open Drawer to click on navigation.
+        onView(withId(R.id.drawer_layout))
+                .check(matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
+                .perform(open()); // Open Drawer
+
+        // Start tasks list screen.
+        onView(withId(R.id.nav_view))
+                .perform(navigateTo(R.id.list_navigation_menu_item));
+
+        // Check that Tasks Activity was opened.
+        onView(withId(R.id.tasksContainer)).check(matches(isDisplayed()));
+    }
+
 
     private void createTask(String title, String description) {
         // Click on the add task button

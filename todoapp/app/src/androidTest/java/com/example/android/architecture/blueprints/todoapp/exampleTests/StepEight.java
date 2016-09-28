@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
  */
 
 @RunWith(AndroidJUnit4.class)
-public class TestEight {
+public class StepEight {
 
     private final static String TESTTITLE = "TEST TITLE";
 

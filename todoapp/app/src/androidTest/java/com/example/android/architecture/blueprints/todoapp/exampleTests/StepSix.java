@@ -22,19 +22,17 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.contrib.DrawerActions.open;
 import static android.support.test.espresso.contrib.DrawerMatchers.isClosed;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static com.example.android.architecture.blueprints.todoapp.custom.action.NavigationViewActions.navigateTo;
 
 /**
- * Test Example Seven
- * Add complete test for opening statistics screen and navigating back to To-Do list
- * Now openStatisticsNavView should pass
+ * Test Example Six
+ * Add test for navigating to statistics menu
+ * openStatisticsNavView should fail as per example to illustrate interacting with nav views.
  */
 
 @RunWith(AndroidJUnit4.class)
-public class TestSeven {
+public class StepSix {
 
     private final static String TESTTITLE = "TEST TITLE";
 
@@ -101,26 +99,9 @@ public class TestSeven {
                 .check(matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
                 .perform(open()); // Open Drawer
 
-        // Start statistics screen.
-        onView(withId(R.id.nav_view))
-                .perform(navigateTo(R.id.statistics_navigation_menu_item));
-
-        // Check that Statistics Activity was opened.
-        onView(withId(R.id.statistics)).check(matches(isDisplayed()));
-
-        // Open Drawer to click on navigation.
-        onView(withId(R.id.drawer_layout))
-                .check(matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
-                .perform(open()); // Open Drawer
-
-        // Start tasks list screen.
-        onView(withId(R.id.nav_view))
-                .perform(navigateTo(R.id.list_navigation_menu_item));
-
-        // Check that Tasks Activity was opened.
-        onView(withId(R.id.tasksContainer)).check(matches(isDisplayed()));
+        // Open Statistics Menu
+        onView(withId(R.id.statistics_navigation_menu_item)).perform(click());
     }
-
 
     private void createTask(String title, String description) {
         // Click on the add task button

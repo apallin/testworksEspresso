@@ -3,7 +3,6 @@ package com.example.android.architecture.blueprints.todoapp.exampleTests;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.view.Gravity;
 
 import com.example.android.architecture.blueprints.todoapp.Injection;
 import com.example.android.architecture.blueprints.todoapp.R;
@@ -19,20 +18,17 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
 import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.contrib.DrawerActions.open;
-import static android.support.test.espresso.contrib.DrawerMatchers.isClosed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
- * Test Example Six
- * Add test for navigating to statistics menu
- * openStatisticsNavView should fail as per example to illustrate interacting with nav views.
+ * Test Example Five
+ * Add class method for clearing static data.
+ * Now editTest should pass
  */
 
 @RunWith(AndroidJUnit4.class)
-public class TestSix {
+public class StepFive {
 
     private final static String TESTTITLE = "TEST TITLE";
 
@@ -90,17 +86,6 @@ public class TestSix {
 
         // Save the task
         onView(withId(R.id.fab_edit_task_done)).perform(click());
-    }
-
-    @Test
-    public void openStatisticsNavView() {
-        // Open Drawer to click on navigation.
-        onView(withId(R.id.drawer_layout))
-                .check(matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
-                .perform(open()); // Open Drawer
-
-        // Open Statistics Menu
-        onView(withId(R.id.statistics_navigation_menu_item)).perform(click());
     }
 
     private void createTask(String title, String description) {
