@@ -1,4 +1,4 @@
-package com.example.android.architecture.blueprints.todoapp.toDoPageObjects;
+package com.example.android.architecture.blueprints.todoapp.examplePageObjects;
 
 import com.example.android.architecture.blueprints.todoapp.R;
 
@@ -6,7 +6,6 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
-import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 /**

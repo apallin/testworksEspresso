@@ -1,4 +1,4 @@
-package com.example.android.architecture.blueprints.todoapp.testworksTests;
+package com.example.android.architecture.blueprints.todoapp.exampleTests;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -13,17 +13,19 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.replaceText;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
- * Test Example Three
- * Functionalize creating task into class method.
- * Add second test for creating another task
+ * Test Example Four
+ * Add test for editing a task.
+ * The edit test task should fail for this until we implement a way to clear data.
  */
 
 @RunWith(AndroidJUnit4.class)
-public class TestThree {
+public class TestFour {
 
     private final static String TESTTITLE = "TEST TITLE";
 
@@ -45,6 +47,30 @@ public class TestThree {
     @Test
     public void createSecondTask() {
         createTask(TESTTITLE2, TESTDESC2);
+    }
+
+    @Test
+    public void editTask() {
+        // First add a task
+        createTask(TESTTITLE, TESTDESCR);
+
+        // Click on the task on the list
+        onView(withText(TESTTITLE)).perform(click());
+
+        // Click on the edit task button
+        onView(withId(R.id.fab_edit_task)).perform(click());
+
+        String editTaskTitle = "Edited Title";
+        String editTaskDescription = "Edited Description";
+
+        // Edit task title and description
+        onView(withId(R.id.add_task_title))
+                .perform(replaceText(editTaskTitle), closeSoftKeyboard()); // Type new task title
+        onView(withId(R.id.add_task_description)).perform(replaceText(editTaskDescription),
+                closeSoftKeyboard()); // Type new task description and close the keyboard
+
+        // Save the task
+        onView(withId(R.id.fab_edit_task_done)).perform(click());
     }
 
     private void createTask(String title, String description) {

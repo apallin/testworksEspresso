@@ -1,4 +1,4 @@
-package com.example.android.architecture.blueprints.todoapp.testworksTests;
+package com.example.android.architecture.blueprints.todoapp.exampleTests;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;

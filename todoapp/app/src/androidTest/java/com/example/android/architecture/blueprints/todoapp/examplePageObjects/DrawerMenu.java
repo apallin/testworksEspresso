@@ -1,4 +1,4 @@
-package com.example.android.architecture.blueprints.todoapp.toDoPageObjects;
+package com.example.android.architecture.blueprints.todoapp.examplePageObjects;
 
 import android.view.Gravity;
 
