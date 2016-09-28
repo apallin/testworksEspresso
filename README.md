@@ -4,7 +4,7 @@
 
 ## Steps
 ---
-1. ** Create a basic test **
+1. **Create a basic test**
   1. Create a new **Package** called `testWorksTests` under the `androidTest` package at `com.example.android.architecture.blueprints.todoapp`.  This can be done by right clicking on the package folder in the Project View and selecting `New > Package`.
   2. Create a new **Class** in the `testWorksTests` package called `testToDoApp`.  Similar to creating a package, right click on the package folder for `testWorksTests` and select `New > Class`.
   3. In this new class, we will create our first basic espresso test.  The basic skeleton for a test is:
