@@ -1,6 +1,20 @@
 # TestWorks Conf Mobile Automation Workshop
 ###### Espresso Automation for Android
----
+
+## Setup
+
+- Must have [Android Studio](https://developer.android.com/studio/install.html) Installed, and an [AVD](https://developer.android.com/studio/run/managing-avds.html) provisioned to run tests against.
+- Clone this repository to your machine.
+- Open the [todoapp](https://github.com/apallin/testworksEspresso/tree/master/todoapp) in Android Studio.
+- Must have Android SDK 24 installed.
+- Be sure you can compile and build the `todoapp` before proceeding with the workshop.
+
+If there is not a Android Tests configuration, take the following steps to add it:
+
+- Open *Run* menu | *Edit Configurations*
+- Add a new *Android Tests* configuration
+- Choose the app module.
+- Add a *Specific instrumentation runner*: `android.support.test.runner.AndroidJUnitRunner`
 
 ## Steps
 ---
