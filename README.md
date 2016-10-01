@@ -1,5 +1,5 @@
 # TestWorks Conf Mobile Automation Workshop
-###### Espresso Automation for Android
+#### Espresso Automation for Android
 
 ## Setup
 
@@ -17,7 +17,7 @@ If there is not a Android Tests configuration, take the following steps to add i
 - Add a *Specific instrumentation runner*: `android.support.test.runner.AndroidJUnitRunner`
 
 ## Steps
----
+
 1. **Create a basic test**
   1. Create a new **Package** called `testWorksTests` under the `androidTest` package at `com.example.android.architecture.blueprints.todoapp`.  This can be done by right clicking on the package folder in the Project View and selecting `New > Package`.
   2. Create a new **Class** in the `testWorksTests` package called `testToDoApp`.  Similar to creating a package, right click on the package folder for `testWorksTests` and select `New > Class`.
