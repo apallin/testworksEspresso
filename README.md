@@ -87,14 +87,18 @@ If there is not a Android Tests configuration, take the following steps to add i
   3.  This kind of functionality is not for beginners and therefore this method has been provided for you [here](https://github.com/apallin/testworksEspresso/blob/master/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/custom/action/NavigationViewActions.java#L63).  However, this is an important step to illustrate that interacting with items is not always as easy trying to click on an item.
   
 7. **Using the `navigateTo` function provided, create a test that opens the Statistics View, validates that it is open, then goes back to the Tasks List.**
-  1.  Now that we can use the `navigateTo` function provided to open the Statistics View, create a simple test that navigates back and forth from Tasks List, to Statistics, to Tasks List again.
+  1. Now that we can use the `navigateTo` function provided to open the Statistics View, create a simple test that navigates back and forth from Tasks List, to Statistics, to Tasks List again.
+
+8. **Create a new Test Class that launches with the StatisticsActivity instead of TasksList**
+  1. Create a new test class that launches with the StatisticsActivity instead of the TasksListActivity.  This should be configured in the setup rule for the new class.
+  2. This test should validate that we are loaded the StaisticsActivity using similar methods to step sever for making sure that it was opened properly from the drawer menu.
   
-8. **Create Page Objects for Pages Touched by Tests Created in Previous Steps**
+9. **Create Page Objects for Pages Touched by Tests Created in Previous Steps**
   1. For best test design practices, it is now time to add a bit of abstraction into what we have already written. Using either our provided [examples](https://github.com/apallin/testworksEspresso/tree/master/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/examplePageObjects) or this [article](https://newcircle.com/s/post/1772/2015/10/16/tutorial-sustainable-android-tests-with-page-objects) to guide you on creating page objects.
   2.  It is best to create a new Package in `androidTests` to hold your Page Objects to keep test code separated.
   3.  Once you move functions used in tests into these objects, re-write your tests to use these newly created objects.
   
-9. **Write your own tests and page objects and explore Espresso!**
+10. **Write your own tests and page objects and explore Espresso!**
   1. Now that you have gotten through the provided examples, you should be able to start writing your own tests!
   2. Examples of tests to write are things like:
     - Complete a created task.

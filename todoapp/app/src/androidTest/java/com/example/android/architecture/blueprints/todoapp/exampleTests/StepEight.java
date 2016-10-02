@@ -5,37 +5,31 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.example.android.architecture.blueprints.todoapp.Injection;
+import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
-import com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity;
-import com.example.android.architecture.blueprints.todoapp.examplePageObjects.DrawerMenu;
-import com.example.android.architecture.blueprints.todoapp.examplePageObjects.StatisticsPage;
-import com.example.android.architecture.blueprints.todoapp.examplePageObjects.TaskDetailsPage;
-import com.example.android.architecture.blueprints.todoapp.examplePageObjects.ToDoListPage;
+import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 /**
- * Test Example Eight
- * Refactor Existing Tests into Page Objects
+ * Test Example Seven
+ * Add complete test for opening statistics screen and navigating back to To-Do list
+ * Now openStatisticsNavView should pass
  */
 
 @RunWith(AndroidJUnit4.class)
 public class StepEight {
 
-    private final static String TESTTITLE = "TEST TITLE";
-
-    private final static String TESTDESCR = "TEST DESCRIPTION";
-
-    private final static String TESTTITLE2 = "SECOND TEST TITLE";
-
-    private final static String TESTDESC2 = "SECOND TEST DESCRIPTION";
-
     @Rule
-    public ActivityTestRule<TasksActivity> mTasksActivityTestRule =
-            new ActivityTestRule<TasksActivity>(TasksActivity.class) {
+    public ActivityTestRule<StatisticsActivity> mStatisticsActivityTestRule =
+            new ActivityTestRule<StatisticsActivity>(StatisticsActivity.class) {
 
                 /**
                  * To avoid a long list of tasks and the need to scroll through the list to find a
@@ -50,55 +44,8 @@ public class StepEight {
             };
 
     @Test
-    public void createOneTask() {
-        createTask(TESTTITLE, TESTDESCR);
-    }
-
-    @Test
-    public void createSecondTask() {
-        createTask(TESTTITLE2, TESTDESC2);
-    }
-
-    @Test
-    public void editTask() {
-        // First add a task
-        createTask(TESTTITLE, TESTDESCR);
-
-        // Click on the task on the list
-        ToDoListPage.openTaskByTitle(TESTTITLE);
-
-        // Click on the edit task button
-        TaskDetailsPage.clickEditTask();
-
-        String editTaskTitle = "Edited Title";
-        String editTaskDescription = "Edited Description";
-
-        TaskDetailsPage.setTaskTitle(editTaskTitle);
-        TaskDetailsPage.setTaskDescription(editTaskDescription);
-        TaskDetailsPage.clickSaveTask();
-
-    }
-
-    @Test
-    public void openStatisticsNavView() {
-        // Start statistics screen.
-        DrawerMenu.navigateToStatisticsPage();
-
+    public void validateLaunchedStatistics() {
         // Check that Statistics Activity was opened.
-        StatisticsPage.checkStatisticsActivity();
-
-        // Start tasks list screen.
-        DrawerMenu.navigateToToDoListPage();
-
-        // Check that Tasks Activity was opened.
-        ToDoListPage.checkToDoListActivity();
-    }
-
-    private void createTask(String taskTitle, String taskDescription) {
-        ToDoListPage.openCreateTask();
-
-        TaskDetailsPage.setTaskTitle(taskTitle);
-        TaskDetailsPage.setTaskDescription(taskDescription);
-        TaskDetailsPage.clickSaveTask();
+        onView(withId(R.id.statistics)).check(matches(isDisplayed()));
     }
 }
