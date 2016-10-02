@@ -48,7 +48,7 @@ If there is not a Android Tests configuration, take the following steps to add i
   2. It is recommended, to best illustrate the next step, that you create a task with the same name/description to edit as one of the other tests.  The next step will illustrate set up and teardown procedures regarding test data.  With this step, tasks from other tests will still be present.
   
 5. **Create setup step to clear our tasks in-between each test**
-  1. Check out the [function](https://github.com/apallin/testworksEspresso/blob/master/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/exampleTests/StepFive.java#L50) in StepFive for clearing out data.
+  1. Check out the [function](https://github.com/apallin/testworksEspresso/blob/example-solutions/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/exampleTests/StepFive.java#L50) in StepFive for clearing out data.
      ```
          @Rule
     public ActivityTestRule<TasksActivity> mTasksActivityTestRule =
@@ -94,7 +94,7 @@ If there is not a Android Tests configuration, take the following steps to add i
   2. This test should validate that we are loaded the StaisticsActivity using similar methods to step sever for making sure that it was opened properly from the drawer menu.
   
 9. **Create Page Objects for Pages Touched by Tests Created in Previous Steps**
-  1. For best test design practices, it is now time to add a bit of abstraction into what we have already written. Using either our provided [examples](https://github.com/apallin/testworksEspresso/tree/master/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/examplePageObjects) or this [article](https://newcircle.com/s/post/1772/2015/10/16/tutorial-sustainable-android-tests-with-page-objects) to guide you on creating page objects.
+  1. For best test design practices, it is now time to add a bit of abstraction into what we have already written. Using either our provided [examples](https://github.com/apallin/testworksEspresso/tree/example-solutions/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/examplePageObjects) or this [article](https://newcircle.com/s/post/1772/2015/10/16/tutorial-sustainable-android-tests-with-page-objects) to guide you on creating page objects.
   2.  It is best to create a new Package in `androidTests` to hold your Page Objects to keep test code separated.
   3.  Once you move functions used in tests into these objects, re-write your tests to use these newly created objects.
   
