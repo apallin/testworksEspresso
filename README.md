@@ -50,7 +50,7 @@ If there is not a Android Tests configuration, take the following steps to add i
 5. **Create setup step to clear our tasks in-between each test**
   1. Check out the [function](https://github.com/apallin/testworksEspresso/blob/example-solutions/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/exampleTests/StepFive.java#L50) in StepFive for clearing out data.
      ```
-         @Rule
+    @Rule
     public ActivityTestRule<TasksActivity> mTasksActivityTestRule =
             new ActivityTestRule<TasksActivity>(TasksActivity.class) {
 
@@ -67,7 +67,7 @@ If there is not a Android Tests configuration, take the following steps to add i
             };
      ```
   2.  This function uses app code for accessing the data registry to delete all tasks.  This is an important step and illustrates how tests should not be dependent on each other for their data artifacts.
-  3.  Leverage this function to explore the code to see how it works and then add it to your tests.  If you were trying to find the task created in Step Four but title and there was duplicate data, causing a headache or failures, this should now work seamlessly.
+  3.  Leverage this function to explore the code to see how it works and then add it to your tests.  If you were trying to find the task created in Step Four by title and there was duplicate data, causing a headache or failures, this should now work seamlessly.
   
 6. **Create a new test for attempting to open the Statistics View by ID**
   1. This test, while seemingly easy in concept, should prove to be difficult.  Try writing the test as such:
@@ -83,7 +83,7 @@ If there is not a Android Tests configuration, take the following steps to add i
             onView(withId(R.id.statistics_navigation_menu_item)).perform(click());
         }
      ```
-  2.  Because of how this application is structure, this `statistics_navigation_menu_item` cannot be opened just by attempting to click on the ID.  This element is a child of a `DrawerLayout` and a it is part of the Menu.  Therefore, you must work through the actions of finding the menu items and finding the element that way.
+  2.  Because of how this application is structured, this `statistics_navigation_menu_item` cannot be opened just by attempting to click on the ID.  This element is a child of a `DrawerLayout` and a it is part of the Menu.  Therefore, you must work through the actions of finding the menu items and finding the element that way.
   3.  This kind of functionality is not for beginners and therefore this method has been provided for you [here](https://github.com/apallin/testworksEspresso/blob/master/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/custom/action/NavigationViewActions.java#L63).  However, this is an important step to illustrate that interacting with items is not always as easy trying to click on an item.
   
 7. **Using the `navigateTo` function provided, create a test that opens the Statistics View, validates that it is open, then goes back to the Tasks List.**
@@ -92,6 +92,7 @@ If there is not a Android Tests configuration, take the following steps to add i
 8. **Create a new Test Class that launches with the StatisticsActivity instead of TasksList**
   1. Create a new test class that launches with the StatisticsActivity instead of the TasksListActivity.  This should be configured in the setup rule for the new class.
   2. This test should validate that we are loaded the StaisticsActivity using similar methods to step sever for making sure that it was opened properly from the drawer menu.
+  3. This type of functionality make testing individual activities more accessible since you do not need to navigate through the application to get to the activity in question.
   
 9. **Create Page Objects for Pages Touched by Tests Created in Previous Steps**
   1. For best test design practices, it is now time to add a bit of abstraction into what we have already written. Using either our provided [examples](https://github.com/apallin/testworksEspresso/tree/example-solutions/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/examplePageObjects) or this [article](https://newcircle.com/s/post/1772/2015/10/16/tutorial-sustainable-android-tests-with-page-objects) to guide you on creating page objects.
@@ -104,3 +105,4 @@ If there is not a Android Tests configuration, take the following steps to add i
     - Complete a created task.
     - Delete a created task.
     - Validate data in the Statistics Page.
+  3. Be sure to leverage launching different app activities to write tests if needed.  A good test is one that does not need to traverse the application as much as possible.
