@@ -70,6 +70,8 @@ If there is not a Android Tests configuration, take the following steps to add i
   3.  Leverage this function to explore the code to see how it works and then add it to your tests.  If you were trying to find the task created in Step Four by title and there was duplicate data, causing a headache or failures, this should now work seamlessly.
   
 6. **Create a new test for attempting to open the Statistics View by ID**
+  **THIS TEST WILL NOT PASS AS ILLUSTRATED BELOW, YOU WILL FINISH IT IN STEP 7**
+  **THIS IS TO ILLUSTRATE IT IS NOT AS EASY AS FINDING AND CLICKING AT TIMES**
   1. This test, while seemingly easy in concept, should prove to be difficult.  Try writing the test as such:
      ```
         @Test
@@ -84,7 +86,7 @@ If there is not a Android Tests configuration, take the following steps to add i
         }
      ```
   2.  Because of how this application is structured, this `statistics_navigation_menu_item` cannot be opened just by attempting to click on the ID.  This element is a child of a `DrawerLayout` and a it is part of the Menu.  Therefore, you must work through the actions of finding the menu items and finding the element that way.
-  3.  This kind of functionality is not for beginners and therefore this method has been provided for you [here](https://github.com/apallin/testworksEspresso/blob/master/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/custom/action/NavigationViewActions.java#L63).  However, this is an important step to illustrate that interacting with items is not always as easy trying to click on an item.
+  3.  This kind of functionality is not for beginners and therefore this method has been provided for you [here](https://github.com/apallin/testworksEspresso/blob/master/todoapp/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/custom/action/NavigationViewActions.java#L63) to finish this task.  However, this is an important step to illustrate that interacting with items is not always as easy trying to click on an item.
   
 7. **Using the `navigateTo` function provided, create a test that opens the Statistics View, validates that it is open, then goes back to the Tasks List.**
   1. Now that we can use the `navigateTo` function provided to open the Statistics View, create a simple test that navigates back and forth from Tasks List, to Statistics, to Tasks List again.
