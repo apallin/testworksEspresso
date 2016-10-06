@@ -70,6 +70,7 @@ If there is not a Android Tests configuration, take the following steps to add i
   3.  Leverage this function to explore the code to see how it works and then add it to your tests.  If you were trying to find the task created in Step Four by title and there was duplicate data, causing a headache or failures, this should now work seamlessly.
   
 6. **Create a new test for attempting to open the Statistics View by ID**
+  
   **THIS TEST WILL NOT PASS AS ILLUSTRATED BELOW, YOU WILL FINISH IT IN STEP 7**
   **THIS IS TO ILLUSTRATE IT IS NOT AS EASY AS FINDING AND CLICKING AT TIMES**
   1. This test, while seemingly easy in concept, should prove to be difficult.  Try writing the test as such:
